@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Style/index-a.css">
+</head>
+<body>
+
+    <h2 id="p1">Hi My Name is Mosharof</h2>
+
+
+  
+<input type="button" value="Hide text" onclick="document.getElementById('p1').style.visibility='hidden'">
+<input type="button" value="Show text" onclick="document.getElementById('p1').style.visibility='visible'">
+
+<h1 id="java">I am Learning JavaScript</h1>
+
+<button id="hide">Hide Text</button>
+
+<button id="Show">Show Text</button>
+<script>
+  const jav=  document.getElementById("java");
+  const hide = document.getElementById("hide");
+  const Show = document.getElementById("Show");
+
+
+  hide.addEventListener('click', function(){
+    jav.style.visibility = 'hidden';
+      Show.addEventListener('click', function(){
+    jav.style.visibility =  'visible';
+  })
+    
+  })
+
+ 
+</script>
+
+
+<form>
+  <input type="text" required>
+  <input type="email" required>
+  <button type="submit">Submit</button>
+</form>
+<form id="form">
+  <input type="text" id="username">
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+    const form = document.getElementById("form");
+const username = document.getElementById("username");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (username.value === "") {
+    alert("Username is required");
+  }
+});
+
+</script>
+</body>
+</html>

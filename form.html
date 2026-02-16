@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      width: 350px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .error {
+      border: 2px solid red;
+    }
+
+    .error-text {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .success {
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<form id="form">
+  <h2>Register</h2>
+
+  <input type="text" id="name" placeholder="Full Name">
+  <div id="nameError" class="error-text"></div>
+
+  <input type="email" id="email" placeholder="Email">
+  <div id="emailError" class="error-text"></div>
+
+  <input type="password" id="password" placeholder="Password">
+  <div id="passwordError" class="error-text"></div>
+
+  <input type="password" id="confirmPassword" placeholder="Confirm Password">
+  <div id="confirmError" class="error-text"></div>
+
+  <input type="number" id="age" placeholder="Age">
+  <div id="ageError" class="error-text"></div>
+
+  <button type="submit">Submit</button>
+
+  <div id="successMessage" class="success"></div>
+</form>
+
+<script>
+  const form = document.getElementById("form");
+
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("confirmPassword");
+  const age = document.getElementById("age");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Reset error messages
+    document.querySelectorAll(".error-text").forEach(el => el.textContent = "");
+    document.querySelectorAll("input").forEach(el => el.classList.remove("error"));
+
+    let isValid = true;
+
+    // Name validation
+    if (name.value.trim() === "") {
+      document.getElementById("nameError").textContent = "Name is required";
+      name.classList.add("error");
+      isValid = false;
+    }
+
+    // Email validation
+    if (!email.value.includes("@")) {
+      document.getElementById("emailError").textContent = "Enter valid email";
+      email.classList.add("error");
+      isValid = false;
+    }
+
+    // Password validation
+    if (password.value.length < 6) {
+      document.getElementById("passwordError").textContent = "Password must be 6+ characters";
+      password.classList.add("error");
+      isValid = false;
+    }
+
+    // Confirm password
+    if (password.value !== confirmPassword.value) {
+      document.getElementById("confirmError").textContent = "Passwords do not match";
+      confirmPassword.classList.add("error");
+      isValid = false;
+    }
+
+    // Age validation
+    if (age.value < 18 || age.value === "") {
+      document.getElementById("ageError").textContent = "Age must be 18+";
+      age.classList.add("error");
+      isValid = false;
+    }
+
+    // Final success
+    if (isValid) {
+      document.getElementById("successMessage").textContent = "Form Submitted Successfully!";
+    }
+  });
+</script>
+
+</body>
+</html>
