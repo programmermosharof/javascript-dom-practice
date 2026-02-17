@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Mouse Events</title>
+</head>
+<body>
+    <button id="btn">Click Me</button>
+    <p id="text">Hello</p>
+
+    <button id="java">JavaScript</button>
+
+    <p id="myName">Hi My Name is Mosharof</p>
+<script>
+    const btnJs = document.getElementById("java");
+    const myName = document.getElementById("myName")
+    btnJs.addEventListener('click', function(){
+        myName.textContent = 'I Learning JavaScript'
+
+    })
+</script>
+
+<script>
+    const btn = document.getElementById("btn");
+const text = document.getElementById("text");
+
+btn.addEventListener("click", function(event) {
+  text.innerText = "Button Clicked!";
+});
+
+</script>
+
+
+
+
+
+
+<input type="text" id="input">
+<script>
+    const input = document.getElementById("input");
+
+input.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    console.log("Enter pressed");
+  }
+});
+
+
+
+
+//     input.addEventListener("keyup", function(event) {
+//   console.log("Released:", event.key);
+// });
+
+
+// // input.addEventListener("keyup", function(event) {
+//   console.log(event.key);
+// });
+
+</script>
+
+</body>
+</html>
